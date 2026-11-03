@@ -1,0 +1,33 @@
+{
+  "description": "Illustrative 8-department retail back-of-store layout (units: metres)",
+  "floor": {"width": 20, "height": 12},
+  "min_gap": 0,
+  "facilities": [
+    {"name": "Dock",      "w": 6, "h": 3, "rotatable": true},
+    {"name": "Receiving", "w": 5, "h": 4, "rotatable": true},
+    {"name": "Storage",   "w": 6, "h": 5, "rotatable": true},
+    {"name": "Picking",   "w": 4, "h": 4, "rotatable": false},
+    {"name": "Packing",   "w": 4, "h": 3, "rotatable": true},
+    {"name": "Returns",   "w": 3, "h": 3, "rotatable": false},
+    {"name": "Office",    "w": 3, "h": 2, "rotatable": true},
+    {"name": "Cold",      "w": 4, "h": 3, "rotatable": true}
+  ],
+  "obstacles": [
+    {"x": 9, "y": 5, "w": 1, "h": 1}
+  ],
+  "flows": [
+    ["Dock", "Receiving", 40],
+    ["Receiving", "Storage", 30],
+    ["Receiving", "Cold", 10],
+    ["Storage", "Picking", 25],
+    ["Cold", "Picking", 8],
+    ["Picking", "Packing", 30],
+    ["Packing", "Dock", 28],
+    ["Returns", "Receiving", 5],
+    ["Returns", "Storage", 4],
+    ["Office", "Receiving", 2],
+    ["Office", "Packing", 2]
+  ],
+  "adjacent": [["Dock", "Receiving", 6]],
+  "separate": [["Office", "Cold", 6]]
+}
